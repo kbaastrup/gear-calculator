@@ -8,7 +8,7 @@ Beregneren er lavet som et letvægts-referenceværktøj og kan køres lokalt ved
 
 ## Online version
 
-En vedligeholdt og udvidet version af denne gearberegner samt relaterede værktøjer, beregnere og guides findes her:  
+En vedligeholdt og udvidet version af denne gearberegner samt relaterede værktøjer, beregnere og guides findes på Bikeland. 
 👉 https://bikeland.dk
 
 ---
