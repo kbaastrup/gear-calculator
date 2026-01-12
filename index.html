@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gear Calculator (local)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand">
+      <h1>Gear Calculator</h1>
+      <p class="muted">Lokal beregner til gear-udvikling, gear inches og hastighed ved kadence.</p>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card">
+      <h2>Input</h2>
+
+      <div class="form-grid">
+        <label>
+          <span>Klinge(r) (tænder)</span>
+          <input id="chainrings" type="text" value="50,34" placeholder="fx 50,34 eller 32" />
+          <small class="muted">Komma-separeret. Eksempel: <code>50,34</code></small>
+        </label>
+
+        <label>
+          <span>Kassette (tænder)</span>
+          <input id="cogs" type="text" value="11,12,13,14,15,17,19,21,23,25,28,32" placeholder="fx 11,13,15,17,19,21,24,28" />
+          <small class="muted">Komma-separeret. Eksempel: <code>11,12,13,...</code></small>
+        </label>
+
+        <label>
+          <span>Kadence (rpm)</span>
+          <input id="cadence" type="number" min="1" step="1" value="90" />
+          <small class="muted">Bruges til at beregne km/t.</small>
+        </label>
+
+        <label>
+          <span>Wheel / dæk setup</span>
+          <select id="wheelPreset">
+            <option value="700c-25" selected>700C x 25 (typisk landevej)</option>
+            <option value="700c-28">700C x 28</option>
+            <option value="700c-32">700C x 32</option>
+            <option value="700c-35">700C x 35 (gravel)</option>
+            <option value="650b-47">650B x 47</option>
+            <option value="29-2.25">29&quot; x 2.25 (MTB)</option>
+            <option value="27.5-2.35">27.5&quot; x 2.35 (MTB)</option>
+            <option value="custom">Custom (indtast selv)</option>
+          </select>
+          <small class="muted">Preset sætter ISO (BSD) + dækbredde.</small>
+        </label>
+
+        <label>
+          <span>ISO / BSD (mm)</span>
+          <input id="bsdMm" type="number" min="200" step="1" value="622" />
+          <small class="muted">700C = 622, 650B = 584, 29&quot; (MTB) = 622, 27.5&quot; = 584.</small>
+        </label>
+
+        <label>
+          <span>Dækbredde (mm)</span>
+          <input id="tireMm" type="number" min="10" step="1" value="25" />
+          <small class="muted">Bruges til omkreds-estimat (BSD + 2×dæk).</small>
+        </label>
+
+        <label class="span-2">
+          <span>Kommentar</span>
+          <input id="note" type="text" placeholder="fx 'Min landevejscykel'" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="btnCalc" class="primary">Beregn</button>
+        <button id="btnReset" class="ghost">Nulstil</button>
+        <button id="btnCSV" class="ghost">Eksportér CSV</button>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+
+      <details class="help">
+        <summary>Hvad bliver beregnet?</summary>
+        <ul>
+          <li><strong>Ratio</strong> = klinge / tandhjul</li>
+          <li><strong>Udvikling (m)</strong> = hjul-omkreds (m) × ratio</li>
+          <li><strong>Gear inches</strong> = (hjuldiameter i inches) × ratio</li>
+          <li><strong>Hastighed (km/t)</strong> = udvikling (m) × kadence (rpm) × 60 / 1000</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Resultater</h2>
+        <div class="pill" id="summaryPill">—</div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th data-sort="chainring">Klinge</th>
+              <th data-sort="cog">Tandhjul</th>
+              <th data-sort="ratio">Ratio</th>
+              <th data-sort="dev">Udvikling (m)</th>
+              <th data-sort="gi">Gear inches</th>
+              <th data-sort="speed">Km/t @ rpm</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="6" class="muted center">Klik “Beregn”</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="foot muted">
+        Tip: klik på kolonne-overskrifter for at sortere.
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer muted">
+    <span>Local tool. No tracking. No dependencies.</span>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
