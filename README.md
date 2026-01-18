@@ -23,6 +23,10 @@ En vedligeholdt og udvidet version af denne gearberegner samt relaterede værkt�
 
 ---
 
+---
+
+Reference-værktøj til udmåling af service-intervaller på cykler findes på https://bike-service-log.kristian-6ff.workers.dev.
+
 ## Vedligeholdt af
 
 https://bikeland.dk
