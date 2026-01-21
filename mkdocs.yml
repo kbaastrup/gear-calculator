@@ -6,6 +6,7 @@ nav:
   - Forside: index.md
   - Sådan bruger du værktøjet: usage.md
   - Forklaring af begreber: concepts.md
+  - Teknisk overblik: technical-overview.md
   - FAQ: faq.md
   - Links & referencer: references.md
 
