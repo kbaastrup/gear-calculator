@@ -1,0 +1,19 @@
+site_name: Gearberegner til cykler – docs
+site_description: Dokumentation for gear-calculator (lokal gearberegner til cykler)
+site_url: https://gear-calculator.readthedocs.io/
+
+nav:
+  - Forside: index.md
+  - Sådan bruger du værktøjet: usage.md
+  - Forklaring af begreber: concepts.md
+  - FAQ: faq.md
+  - Links & referencer: references.md
+
+theme:
+  name: readthedocs
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
