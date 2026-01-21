@@ -5,4 +5,4 @@ og hvordan du kan bruge værktøjet lokalt.
 
 ## Vedligeholdt version og flere cykelværktøjer
 En vedligeholdt og udvidet version samt relaterede cykelværktøjer og guides findes her:
-https://bikeland.dk
+[https://bikeland.dk](https://bikeland.dk)
